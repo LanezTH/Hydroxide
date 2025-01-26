@@ -104,6 +104,8 @@ MessageBox.Show("Welcome to Hydroxide", "This is not a finished product\n\nUPDAT
 Interface.Name = HttpService:GenerateGUID(false)
 if getHui then
 	Interface.Parent = getHui()
+	ProtectGui(Interface)
+	sethiddenproperty(Interface, "OnTopOfCoreBlur", true)
 else
 	ProtectGui(Interface)
 	sethiddenproperty(Interface, "OnTopOfCoreBlur", true)
