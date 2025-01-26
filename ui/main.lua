@@ -1,6 +1,8 @@
 local CoreGui = game:GetService("CoreGui")
 local UserInput = game:GetService("UserInputService")
 local HttpService = game:GetService("HttpService")
+local ProtectGui = protectgui or (syn and syn.protect_gui) or function() end
+local sethiddenproperty = sethiddenproperty or function() end
 
 local Interface = import("rbxassetid://11389137937")
 
@@ -103,10 +105,8 @@ Interface.Name = HttpService:GenerateGUID(false)
 if getHui then
 	Interface.Parent = getHui()
 else
-	if syn then
-		syn.protect_gui(Interface)
-	end
-
+	ProtectGui(Interface)
+	sethiddenproperty(Interface, "OnTopOfCoreBlur", true)
 	Interface.Parent = CoreGui
 end
 
